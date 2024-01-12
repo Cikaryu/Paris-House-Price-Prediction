@@ -13,7 +13,7 @@ def explore():
     st.write("Selamat datang di bagian program aplikasi prediksi harga rumah di Paris.")
 
     # Importing the dataset
-    dataset = pd.read_csv(r'D:\Multimedia\Documents\asc\Projecthousepredict\ParisHousing.csv')
+    dataset = pd.read_csv(r'C:\Users\ASUS\Downloads\Newfolder\asc\Paris-House-Price-Prediction\ParisHousing.csv')
     st.subheader("Dataset Preview:")
     st.write(dataset.head())
 

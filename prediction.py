@@ -10,7 +10,7 @@ def predict():
     # Load the dataset
     @st.cache_data
     def load_data():
-        dataset = pd.read_csv(r'D:\Multimedia\Documents\asc\Projecthousepredict\ParisHousing.csv')
+        dataset = pd.read_csv(r'C:\Users\ASUS\Downloads\Newfolder\asc\Paris-House-Price-Prediction\ParisHousing.csv')
         current_year = datetime.datetime.now().year
         dataset['ageOfProperty'] = current_year - dataset['made']
         return dataset

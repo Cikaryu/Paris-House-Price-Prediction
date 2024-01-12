@@ -8,7 +8,7 @@ import numpy as np
 # Membuat fungsi untuk membaca data dengan caching
 @st.cache_data
 def load_data():
-    return pd.read_csv(r'D:\Multimedia\Documents\asc\Projecthousepredict\ParisHousing.csv')
+    return pd.read_csv(r'C:\Users\ASUS\Downloads\Newfolder\asc\Paris-House-Price-Prediction\ParisHousing.csv')
 
 def selection():
     st.title("Model Selection")
