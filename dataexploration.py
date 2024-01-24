@@ -6,6 +6,7 @@ import seaborn as sns
 import os
 import streamlit as st
 
+@st.cache_data
 def explore():
     st.title(f"Data Exploration and Loading")
     st.write("These steps involve understanding and preparing the Paris Housing Dataset before using it for further analysis or model training..")
