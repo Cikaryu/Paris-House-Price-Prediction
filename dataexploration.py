@@ -11,7 +11,7 @@ def explore():
     st.write("Selamat datang di bagian program aplikasi prediksi harga rumah di Paris.")
 
     # Importing the dataset
-    dataset_url = 'https://github.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv'
+    dataset_url = 'https://raw.githubusercontent.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv'
     dataset = pd.read_csv(dataset_url)
     st.subheader("Dataset Preview:")
     st.write(dataset.head())
