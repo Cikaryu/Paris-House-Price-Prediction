@@ -1,11 +1,12 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from dataexploration import explore
+from featureselection import feature
 
 with st.sidebar:
     selected = option_menu(
         menu_title="Paris House Prediction",
-        options=["Introduction","Data Exploration"],
+        options=["Introduction","Data Exploration","Feature Selection"],
         menu_icon="cast",
         default_index = 0,  
     )
@@ -21,3 +22,5 @@ if selected == "Introduction":
     )
 elif selected == "Data Exploration":
     explore()
+elif selected == "Feature Selection":
+    feature()
