@@ -29,9 +29,9 @@ if selected == "Introduction":
     # About App
     st.markdown(
     """
-     <div style="text-align: Center;">
+    <div style="text-align: Center; font-size: 26px;">
         About the Application
-     </div>
+    </div>
     """,unsafe_allow_html=True)
     st.markdown(
     """
@@ -44,7 +44,12 @@ if selected == "Introduction":
     unsafe_allow_html=True)
     
     # How To Use
-    st.markdown("<h3 class='centered'>How to Use the Prediction Feature</h3>", unsafe_allow_html=True)
+    st.markdown(
+    """
+    <div style="text-align: Center; font-size: 26px;">
+        How to Use the Prediction Feature
+    </div>
+    """,unsafe_allow_html=True)
     st.markdown(
     """
     <div style="text-align: justify;">
@@ -56,7 +61,12 @@ if selected == "Introduction":
     unsafe_allow_html=True)
     
     # Stay Informed
-    st.markdown("<h3 class='centered'>Stay Informed</h3>", unsafe_allow_html=True)
+    st.markdown(
+    """
+    <div style="text-align: Center; font-size: 26px;">
+        Stay Informed
+    </div>
+    """,unsafe_allow_html=True)
     st.markdown(
     """
     <div style="text-align: justify;">
@@ -68,7 +78,12 @@ if selected == "Introduction":
     unsafe_allow_html=True)
 
     # Start Exploring
-    st.markdown("<h2 class='centered'>Start Exploring</h2>", unsafe_allow_html=True)
+    st.markdown(
+    """
+    <div style="text-align: Center; font-size: 26px;">
+        Start Exploring
+    </div>
+    """,unsafe_allow_html=True)
     st.markdown(
     """
     <div style="text-align: justify;">
@@ -78,7 +93,12 @@ if selected == "Introduction":
     </div>
     """,
     unsafe_allow_html=True)
-    st.markdown("<h5 class='centered'>Thank you for choosing Paris House Price Prediction. Let's explore the future of real estate together!</h5>", unsafe_allow_html=True)
+    st.markdown(
+    """
+    <div style="text-align: Center; font-size: 20px;">
+        Thank you for choosing Paris House Price Prediction. Let's explore the future of real estate together!
+    </div>
+    """,unsafe_allow_html=True)
     
     
 
