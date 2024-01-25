@@ -3,10 +3,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor
+from dataloader import load_data
 
 @st.cache_data
-def load_data():
-    return pd.read_csv(r'https://raw.githubusercontent.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv')
+def train_model(dataset):
+    # Create a RandomForestRegressor model
+    model = RandomForestRegressor()
+
+    # Fit the model on the training data
+    X_train = dataset[['squareMeters', 'numberOfRooms', 'hasYard', 'hasPool', 'floors', 'cityCode', 'cityPartRange', 'numPrevOwners', 'made', 'isNewBuilt', 'hasStormProtector', 'basement', 'attic', 'garage', 'hasStorageRoom', 'hasGuestRoom']]
+    y_train = dataset['price']
+    model.fit(X_train, y_train)
+
+    return model, X_train.columns
 
 def feature():
     st.title("Feature Selection")
@@ -16,19 +25,14 @@ def feature():
     dataset = load_data()
 
 # Create a RandomForestRegressor model
-    model = RandomForestRegressor()
-
-# Fit the model on the training data
-    X_train = dataset[['squareMeters', 'numberOfRooms', 'hasYard', 'hasPool', 'floors', 'cityCode', 'cityPartRange', 'numPrevOwners', 'made', 'isNewBuilt', 'hasStormProtector', 'basement', 'attic', 'garage', 'hasStorageRoom', 'hasGuestRoom']]
-    y_train = dataset['price']
-    model.fit(X_train, y_train)
+    model, feature_columns = train_model(dataset)
 # Get feature importances
     feature_importances = model.feature_importances_
 
 # Display feature importances in a table
     st.subheader("Feature Importances:")
     feature_importance_df = pd.DataFrame({
-        'Feature': X_train.columns,
+        'Feature': feature_columns,
         'Importance': feature_importances
     })
     st.table(feature_importance_df)
@@ -54,4 +58,5 @@ def feature():
     st.pyplot(fig)  # Display the scatter plot in Streamlit
 
 if __name__ == "__main__":
-    feature()
+    dataset = load_data
+    feature(dataset)
