@@ -29,40 +29,60 @@ if selected == "Introduction":
     # About App
     st.markdown(
     """
+    <hr>
     <div style="text-align: Center; font-size: 26px;">
         About the Application
     </div>
+    <br>
+    
     """,unsafe_allow_html=True)
-    st.markdown(
-    """
-    <div style="text-align: justify;">
-        Our application utilizes advanced machine learning algorithms to analyze various factors influencing house prices 
-        in Paris. By inputting specific features such as the number of rooms, square footage, and location, our model 
-        generates accurate predictions to help you understand the market dynamics.
-    </div>
-    """,
-    unsafe_allow_html=True)
+
+    # Create a two-column layout
+    col1, col2 = st.columns([2, 3])
+
+    with col1:
+        st.markdown(
+        """
+        <div style="text-align: justify;">
+            Our application utilizes advanced machine learning algorithms to analyze various factors influencing house prices 
+            in Paris. By inputting specific features such as the number of rooms, square footage, and location, our model 
+            generates accurate predictions to help you understand the market dynamics.
+        </div>
+        """,
+        unsafe_allow_html=True)
+
+    with col2:
+        image_url = "https://www.sightline.org/wp-content/uploads/2021/07/french_housing-full_years-062821-300ppi-772x609.png"
+        st.image(image_url, use_column_width=True)
     
     # How To Use
     st.markdown(
     """
+    <hr>
     <div style="text-align: Center; font-size: 26px;">
         How to Use the Prediction Feature
     </div>
+    <br>
     """,unsafe_allow_html=True)
-    st.markdown(
-    """
-    <div style="text-align: justify;">
-        Get personalized predictions for house prices by filling out the simple input form. Explore how changing 
-        parameters such as the size of the property or its location can impact the estimated price. Our application 
-        aims to empower you with the information needed to make confident decisions in the housing market.
-    </div>
-    """,
-    unsafe_allow_html=True)
+    col1, col2 = st.columns([2, 3])
+    with col1:
+        st.markdown(
+        """
+        <div style="text-align: justify;">
+            Get personalized predictions for house prices by filling out the simple input form. Explore how changing 
+            parameters such as the size of the property or its location can impact the estimated price. Our application 
+            aims to empower you with the information needed to make confident decisions in the housing market.
+        </div>
+        """,
+        unsafe_allow_html=True)
+    with col2:
+        image_url = "https://www.sightline.org/wp-content/uploads/2021/07/french_housing-full_years-062821-300ppi-772x609.png"
+        st.image(image_url, use_column_width=True)  
     
     # Stay Informed
     st.markdown(
     """
+    <hr>
     <div style="text-align: Center; font-size: 26px;">
         Stay Informed
     </div>
@@ -80,6 +100,7 @@ if selected == "Introduction":
     # Start Exploring
     st.markdown(
     """
+    <hr>
     <div style="text-align: Center; font-size: 26px;">
         Start Exploring
     </div>
@@ -91,10 +112,13 @@ if selected == "Introduction":
         sections of our application. Whether you're a first-time homebuyer or a seasoned investor, our goal is to make 
         your experience seamless and informative.
     </div>
+    <hr>
     """,
     unsafe_allow_html=True)
     st.markdown(
     """
+    <br>
+    <br>
     <div style="text-align: Center; font-size: 20px;">
         Thank you for choosing Paris House Price Prediction. Let's explore the future of real estate together!
     </div>
