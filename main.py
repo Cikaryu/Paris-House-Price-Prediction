@@ -1,12 +1,12 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from dataexploration import explore
-from featureselection import feature
 from dataloader import load_data
+from prediction import predict
 with st.sidebar:
     selected = option_menu(
         menu_title="Paris House Prediction",
-        options=["Introduction","Predict","Data Exploration","Feature Selection"],
+        options=["Introduction","Prediction","Data Exploration"],
         menu_icon="cast",
         default_index = 0,  
     )
@@ -129,6 +129,6 @@ if selected == "Introduction":
 elif selected == "Data Exploration":
     dataset = load_data()
     explore(dataset)
-elif selected == "Feature Selection":
+elif selected == "Prediction":
     dataset = load_data()
-    feature()
+    predict()

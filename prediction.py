@@ -10,7 +10,7 @@ def predict():
     # Load the dataset
     @st.cache_data
     def load_data():
-        dataset = pd.read_csv(r'C:\Users\ASUS\Downloads\Newfolder\asc\Paris-House-Price-Prediction\ParisHousing.csv')
+        dataset = pd.read_csv(r'https://raw.githubusercontent.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv')
         current_year = datetime.datetime.now().year
         dataset['ageOfProperty'] = current_year - dataset['made']
         return dataset
@@ -20,8 +20,6 @@ def predict():
 
     # Display the dataset
     st.title("Paris House Prediction")
-    st.subheader("Dataset Preview")
-    st.dataframe(data.head())
 
     # User input for the new house details
     st.subheader("Enter New House Details")
@@ -70,7 +68,7 @@ def predict():
     
     new_ageOfProperty = st.number_input("Enter the age of the new house in years: ", min_value=0, value=1, step=1)
 
-     # Create a DataFrame for the new house features
+    # Create a DataFrame for the new house features
     new_house_features = pd.DataFrame({
         'squareMeters': [new_square_meters],
         'numberOfRooms': [new_number_of_rooms],
