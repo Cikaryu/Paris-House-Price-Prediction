@@ -5,15 +5,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import streamlit as st
+from dataloader import load_data
 
 @st.cache_data
-def explore():
+def explore(dataset):
     st.title(f"Data Exploration and Loading")
-    st.write("These steps involve understanding and preparing the Paris Housing Dataset before using it for further analysis or model training..")
+    st.write("These steps involve understanding and preparing the Paris Housing Dataset before using it for further analysis or model training.")
 
     # Importing the dataset
-    dataset_url = 'https://raw.githubusercontent.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv'
-    dataset = pd.read_csv(dataset_url)
     st.subheader("Dataset Preview:")
     st.write("The application fetches the dataset from a specified URL and displays a preview of the dataset's initial rows.")
     st.write(dataset.head())
@@ -43,4 +42,5 @@ def explore():
     st.pyplot(fig)
 
 if __name__ == "__main__":
-    explore()
+    dataset = load_data()
+    explore(dataset)
