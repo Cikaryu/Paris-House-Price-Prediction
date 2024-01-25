@@ -24,7 +24,7 @@ if selected == "Introduction":
         estimate housing prices in the beautiful city of Paris. Whether you are a potential homebuyer, investor, or 
         simply curious about the real estate market in Paris, our model is designed to assist you in making informed decisions.
     </div>
-    """),
+    """, unsafe_allow_html=True)
 
     # About App
     st.markdown("<h3 class='centered'>About the Application</h3>", unsafe_allow_html=True)
