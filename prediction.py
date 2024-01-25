@@ -48,20 +48,20 @@ def predict():
     option_has_storm_protector = st.radio("Does the new house have a storm protector?", ["Yes", "No"], index=0)
     new_has_storm_protector = 1 if option_has_storm_protector == "Yes" else 0
     
-    option_basement = st.radio("Does the new house have a basement?", ["Yes", "No"], index=0)
-    new_basement = 1 if option_basement == "Yes" else 0
+    new_basement = st.text_input("Does the new house have a basement? (leave blank if not applicable): ")
+    new_basement = None if new_basement.strip() == "" else int(new_basement)
 
-    option_attic = st.radio("Does the new house have an attic?", ["Yes", "No"])
-    new_attic = 1 if option_attic == "Yes" else 0
+    new_attic = st.text_input("Does the new house have an attic? (leave blank if not applicable): ")
+    new_attic = None if new_attic.strip() == "" else int(new_attic)
     
-    option_garage = st.radio("Does the new house have a garage?", ["Yes", "No"], index=0)
-    new_garage = 1 if option_garage == "Yes" else 0
+    new_garage = st.text_input("Does the new house have a garage? (leave blank if not applicable): ")
+    new_garage = None if new_garage.strip() == "" else int(new_garage)
 
     option_has_storage_room = st.radio("Does the new house have a storage room?", ["Yes", "No"], index=0)
     new_has_storage_room= 1 if option_has_storage_room == "Yes" else 0
 
-    option_has_guest_room = st.radio("Does the new house have a guest room?", ["Yes", "No"], index=0)
-    new_has_guest_room = 1 if option_has_guest_room == "Yes" else 0
+    new_has_guest_room = st.text_input("Does the new house have a guest room? (leave blank if not applicable): ")
+    new_has_guest_room = None if new_has_guest_room.strip() == "" else int(new_has_guest_room)
     
     new_ageOfProperty = st.number_input("Enter the age of the new house in years: ", min_value=0, value=1, step=1)
 
