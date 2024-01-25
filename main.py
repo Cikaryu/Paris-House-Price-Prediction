@@ -27,7 +27,12 @@ if selected == "Introduction":
     """, unsafe_allow_html=True)
 
     # About App
-    st.markdown("<h3 class='centered'>About the Application</h3>", unsafe_allow_html=True)
+    st.markdown(
+    """
+     <div style="text-align: Center;">
+        About the Application
+     </div>
+    """,unsafe_allow_html=True)
     st.markdown(
     """
     <div style="text-align: justify;">
