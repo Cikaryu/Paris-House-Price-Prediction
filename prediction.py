@@ -18,9 +18,6 @@ def predict():
     # Load data
     data = load_data()
 
-    # Display the dataset
-    st.title("Paris House Prediction")
-
     # User input for the new house details
     st.subheader("Enter New House Details")
     new_meters = st.number_input("Area of the new house (meters)", min_value=0.0, value=100.0, step=1.0)
