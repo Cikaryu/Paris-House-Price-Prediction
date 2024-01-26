@@ -26,11 +26,15 @@ The following is the system architecture or tech stack that we consider to devel
 Python : Used for data processing, analysis, and modeling.
 
 ### Framework and Library
-Jupyter Notebook       : For experiments and data analysis.
-Pandas                 : For data manipulation.
-NumPy                  : For numerical operations.
-Scikit-learn           : For house price prediction modeling.
-Matplotlib and Seaborn : For data visualization.
+•   Jupyter Notebook       : For experiments and data analysis.
+
+•   Pandas                 : For data manipulation.
+
+•   NumPy                  : For numerical operations.
+
+•   Scikit-learn           : For house price prediction modeling.
+
+•   Matplotlib and Seaborn : For data visualization.
 
 ### Machine Learning Model
 Using regression or ensemble algorithms such as Random Forest or Gradient Boosting to build house price prediction models.
@@ -117,7 +121,7 @@ Gung Satria (210040072)
 
 Krisna Prasetya (210040038)
 
-Kadek Juliana Putra (210040076)
+Juliana Putra (210040076)
 
 
 
