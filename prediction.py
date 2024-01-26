@@ -13,34 +13,31 @@ def predict():
         dataset = pd.read_csv(r'https://raw.githubusercontent.com/Cikaryu/Paris-House-Price-Prediction/main/ParisHousing.csv')
         current_year = datetime.datetime.now().year
         dataset['ageOfProperty'] = current_year - dataset['made']
-        return dataset
+        return dataset, current_year
 
     # Load data
-    data = load_data()
+    data, current_year = load_data()
 
     # User input for the new house details
     st.subheader("Enter New House Details")
     new_meters = st.number_input("Area of the new house (meters)", min_value=0.0, value=100.0, step=1.0)
     new_square_meters = new_meters ** 2
-    new_number_of_rooms = st.number_input("Number of rooms", min_value=1, value=3, step=1)
+    new_number_of_rooms = st.number_input("Number of rooms", min_value=1, value=None, step=1,)
     option_has_yard = st.radio("Does the new house have a yard?", ["Yes", "No"])
     new_has_yard = 1 if option_has_yard == "Yes" else 0
 
     option_has_pool = st.radio("Does the new house have a pool?", ["Yes", "No"])
     new_has_pool = 1 if option_has_pool == "Yes" else 0
     
-    new_floors = st.number_input("Number of floors", min_value=1, value=2, step=1)
+    new_floors = st.number_input("Number of floors", min_value=1, value=None, step=1)
 
-    new_city_code = st.text_input("Enter the city code of the new house (leave blank if not applicable): ")
-    new_city_code = None if new_city_code.strip() == "" else int(new_city_code)
+    new_city_code = st.number_input("Enter the city code of the new house", min_value=1, value=None, step=1)
 
-    new_city_part_range = st.text_input("Enter the city part range of the new house (leave blank if not applicable): ")
-    new_city_part_range = None if new_city_part_range.strip() == "" else int(new_city_part_range)
+    new_city_part_range = st.number_input("Enter the city part range of the new house", min_value=1, value=None, step=1)
+    
+    new_num_prev_owners = st.number_input("Enter the number of previous owners of the new house", min_value=1, value=None, step=1)
 
-    new_num_prev_owners = st.text_input("Enter the number of previous owners of the new house (leave blank if not applicable): ")
-    new_num_prev_owners = None if new_num_prev_owners.strip() == "" else int(new_num_prev_owners)
-
-    new_construction_year = st.number_input("Enter the construction year of the new house: ", min_value=1800, value=2020, step=1)
+    new_construction_year = st.number_input("Enter the construction year of the new house: ", min_value=1800, value=None, step=1)
     
     option_new_built = st.radio("Is the new house newly built?", ["Yes", "No"])
     new_is_new_built =  1 if option_new_built == "Yes" else 0
@@ -48,22 +45,22 @@ def predict():
     option_has_storm_protector = st.radio("Does the new house have a storm protector?", ["Yes", "No"], index=0)
     new_has_storm_protector = 1 if option_has_storm_protector == "Yes" else 0
     
-    new_basement = st.text_input("Does the new house have a basement? (leave blank if not applicable): ")
-    new_basement = None if new_basement.strip() == "" else int(new_basement)
+    new_basement = st.number_input("Enter the basement of the new house", min_value=1, value=None, step=1)
 
-    new_attic = st.text_input("Does the new house have an attic? (leave blank if not applicable): ")
-    new_attic = None if new_attic.strip() == "" else int(new_attic)
+    new_attic = st.number_input("Enter the attic of the new house", min_value=1, value=1, step=1,)
     
-    new_garage = st.text_input("Does the new house have a garage? (leave blank if not applicable): ")
-    new_garage = None if new_garage.strip() == "" else int(new_garage)
+    new_garage = st.number_input("Enter the garage of the new house", min_value=1, value=None, step=1)
 
     option_has_storage_room = st.radio("Does the new house have a storage room?", ["Yes", "No"], index=0)
     new_has_storage_room= 1 if option_has_storage_room == "Yes" else 0
 
-    new_has_guest_room = st.text_input("Does the new house have a guest room? (leave blank if not applicable): ")
-    new_has_guest_room = None if new_has_guest_room.strip() == "" else int(new_has_guest_room)
+    new_has_guest_room = st.number_input("Enter the guest room of the new house", min_value=1, value=None, step=1)
     
-    new_ageOfProperty = st.number_input("Enter the age of the new house in years: ", min_value=0, value=1, step=1)
+    if new_construction_year is not None:
+        age_of_property = current_year - new_construction_year
+    else:
+    # Provide a default value or handle the case where construction year is not provided
+        age_of_property = 0
 
     # Create a DataFrame for the new house features
     new_house_features = pd.DataFrame({
@@ -83,13 +80,12 @@ def predict():
         'garage': [new_garage],
         'hasStorageRoom': [new_has_storage_room],
         'hasGuestRoom': [new_has_guest_room],
-        'ageOfProperty': [new_ageOfProperty]
+        'ageOfProperty': [age_of_property]
     })
 
     # Display user input
     st.subheader("User Input:")
     st.write(new_house_features)
-
     # Predict the house price
     st.subheader("Predicted House Price:")
 
