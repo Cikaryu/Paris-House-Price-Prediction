@@ -150,5 +150,4 @@ elif selected == "Data Exploration":
     dataset = load_data()
     explore(dataset)
 elif selected == "Prediction":
-    dataset = load_data()
     predict()
