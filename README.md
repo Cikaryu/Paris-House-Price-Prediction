@@ -38,7 +38,7 @@ Using regression or ensemble algorithms such as Random Forest or Gradient Boosti
 ### UI Prototyping
 Streamlit : For creating interactive and fast user interfaces.
 
-## configuration instructions
+## Configuration instructions
 To run the Paris house price prediction project, you need to configure your working environment. Here are the steps:
 
 ### 1. Python installation
@@ -66,8 +66,8 @@ PS:C/> myenv\Scripts\activate
 
 Using Conda or MiniConda : 
 ```
-conda create --name myenv python=3.7
-conda activate myenv
+(Base)C:/> conda create --name myenv python=3.7
+(Base)C:/> conda activate myenv
 ```
 
 ### 3. Dependency Installation
@@ -97,12 +97,19 @@ $ cd ProjectLocation
 $ streamlit run main.py
 ```
 
-## app usage instructions
+## App usage instructions
 
-test
+Once open your web browser and go to the URL provided.
 
+You will be presented with the Introduction view, on the right there are also several sidebar options. Starting from Introduction, Prediction and Data exploration.
 
+To use the Prediction feature, you can select the Prediction menu in the sidebar and the Prediction page will be displayed.
 
+Enter the house details that must be inputted such as Area of the new house (meters), Number of rooms, Number of floors, etc.
+
+After inputting all the house details, at the bottom there will be User input. user input contains a table that displays the user input above it. 
+
+Click the Prediction button to get house price predictions in Paris. The price will be displayed in Euro currency.
 
 
 ## Contributor

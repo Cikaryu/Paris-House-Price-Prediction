@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from dataexploration import explore
 from dataloader import load_data
 from prediction import predict
+
 with st.sidebar:
     selected = option_menu(
         menu_title="Paris House Prediction",
@@ -12,6 +13,11 @@ with st.sidebar:
     )
 if selected == "Introduction":
     st.title(f"Welcome to Paris House Prediction")
+
+    st.markdown(
+    """
+    <br>
+    """, unsafe_allow_html=True)
 
     image_url = "https://assets.kompasiana.com/items/album/2015/08/04/www-telegraph-co-uk-55c0663792937374048b4567.jpg?v=600&t=o?t=o&v=740&x=416"
     st.image(image_url, use_column_width=True)
@@ -38,41 +44,21 @@ if selected == "Introduction":
     """,unsafe_allow_html=True)
 
     # Create a two-column layout
-    
-    st.markdown(
-    """
-    <div style="text-align: justify;">
-        Our application utilizes advanced machine learning algorithms to analyze various factors influencing house prices 
-        in Paris.
-    </div>
-    """,
-    unsafe_allow_html=True)
+    col1, col2 = st.columns([2, 3])
+    with col1 : 
+        st.markdown(
+        """
+        <div style="text-align: justify;">
+            Our application utilizes advanced machine learning algorithms to analyze various factors influencing house prices 
+            in Paris.By inputting specific features such as the number of rooms, square footage, and location, our model 
+            generates accurate predictions to help you understand the market dynamics.
+        </div>
+        """,
+        unsafe_allow_html=True)
         
-    
-image_url = "https://assets.kompasiana.com/items/album/2015/08/04/www-telegraph-co-uk-55c0663792937374048b4567.jpg"
-
-col1, col2 = st.beta_columns([0.1, 0.8]) # create a new column with a width of 0.8 (80% of the page width)
-
-with col2:
-    container = st.beta_container() # create a new container
-    st.markdown("""
-        f'<style>{{"img {{display: block; margin: 0 auto; width: 100%;}}}</style>' """,
-        unsafe_allow_html=True
-    )
-    container.image(image_url, use_column_width=True)
-
-    st.image(image_url, use_column_width=True)
-
-    st.markdown(
-    """
-    <div style="text-align: justify;">
-        By inputting specific features such as the number of rooms, square footage, and location, our model 
-        generates accurate predictions to help you understand the market dynamics.
-    </div>
-    """,
-    unsafe_allow_html=True)
-    
-    
+    with col2 :
+        image_url = "https://media.architecturaldigest.com/photos/5e6a42b25c94700009daa7d7/master/pass/AD0420_DIRAND_7.jpg"
+        st.image(image_url, use_column_width=True) 
 
     # How To Use
     st.markdown(
@@ -83,6 +69,7 @@ with col2:
     </div>
     <br>
     """,unsafe_allow_html=True)
+
     col1, col2 = st.columns([2, 3])
     with col1:
         st.markdown(
@@ -118,6 +105,7 @@ with col2:
     # unsafe_allow_html=True)
 
     # Start Exploring
+        
     st.markdown(
     """
     <hr>
@@ -145,9 +133,9 @@ with col2:
     """,unsafe_allow_html=True)
     
     
-
 elif selected == "Data Exploration":
     dataset = load_data()
     explore(dataset)
+
 elif selected == "Prediction":
     predict()
