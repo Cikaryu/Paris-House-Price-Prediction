@@ -99,7 +99,7 @@ $ streamlit run main.py
 
 ## App usage instructions
 
-Once open your web browser and go to the URL provided.
+Once open your web browser and go to the URL [provided](https://parishousepredict.streamlit.app/).
 
 You will be presented with the Introduction view, on the right there are also several sidebar options. Starting from Introduction, Prediction and Data exploration.
 
